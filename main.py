@@ -1,6 +1,8 @@
 
 from random import randint
 from tqdm import tqdm
+import venta 
+import persona
 
 class Automovil:
     def __init__(self,tipo,color, marca, modelo, nombre, motor, tcomb, kilome,estado, costo):
@@ -54,69 +56,13 @@ class Automovil:
         self.kilome=x
     def setEstado(self, x):
         self.estado=x
-
-class Persona:
-    def __init__(self,idPerson,nombreP, ap, am, numT, calle, est, num, categoria, edad):
-        self.idPerson=idPerson
-        self.nombre=nombreP
-        self.ap=ap
-        self.am=am
-        self.numT=numT
-        self.calle=calle
-        self.est=est
-        self.num=num
-        self.catego=categoria 
-        self.edad=edad
-
-    def getidPerson(self):
-        return self.idPerson
-    def getNombre(self):
-        return self.nombreP
-    def getApatern(self):
-        return self.ap
-    def getAmatern(self):
-        return self.am
-    def getnumT(self):
-        return self.numT
-    def getcalle(self):
-        return self.calle
-    def getEst(self):
-        return self.est
-    def getnum(self):
-        return self.num
-    def getCatego(self):
-        return self.catego
-    def getEdad(self):
-        return self.edad
-
-    def setidPerson(self,x):
-        self.idPerson=x
-    def setNombre(self,x):
-        self.nombreP=x
-    def setApatern(self,x):
-        self.ap=x
-    def setAmatern(self,x):
-        self.am=x
-    def setnumT(self,x):
-        self.numT=x
-    def setcalle(self,x):
-        self.calle=x
-    def stEst(self,x):
-        self.est=x
-    def setnum(self,x):
-        self.num=x
-    def setCatego(self,x):
-        self.catego=x
-    def setEdad(self, x):
-        self.edad=x
-    
     def arranque(self):
         print("Estoy arrancando")
 
     def color(self):
        print(self.getColor())
 
-    def IniciarPrueba(self):
+    def IniciarPrueba():
         print("Se esta iniciando la prueba de manejo\n")
         loop=tqdm(total=40000,position=0,leave=False)
         for k in range(40000):
@@ -149,15 +95,6 @@ lim2=Limosina('Limosina','Azul','MERCEDES',2019,'CLASE S',2.7, 'DISEL',100,"SEMI
 lim3=Limosina('Limosina','Negra','CHYSLER',2020,'WALTER',2.4, 'ELECTRICA',200,"SEMINUEVA",2000000)
 lim4=Limosina('Limosina','Morada','HUMMER',2021,'RJRED',2.3, 'Gasolina',300,"SEMINUEVA",5000000)
 lim5=Limosina('Limosina','Blanca','ROLLS ROYCE',2022,'ROYCE',2.2, 'ELECTRI',50,"SEMINUEVA",9999999)
-
-
-class Cliente(Persona):
-    pass
-class Vendedor(Persona):
-    pass
-vend1=Vendedor(1001,'Osvaldo','Santillan','Jimenez',7751655381, 'Aldama','Hidalgo',35,'Empleado',19)
-vend2=Vendedor(1002,'Alexis','Lozano','Franco',7751655383, 'Independencia','Hidalgo',0,'Empleado',18)
-vend3=Vendedor(1003,'Elias','Trejo','Rodriguez',7751655382, 'Revolucion','Queretaro',9,'Empleado',18)
 
 cCarrs=[car1,car2,car3,car4,car5]
 cCam=[cam1,cam2,cam3,cam4,cam5]   
@@ -220,19 +157,26 @@ def busqueda():
           
                 
 print("Bienvenido a Concesionaria de Autos 'Aguila Blanca'\n")
-print("Este es nuestro menu\n")
-print("1.-Venta de nuestros automoviles\n")
-print("2.-Te mostramos nuestro catalogo\n")
-print("3.-Busqueda \n")
+print("Este es nuestro menu")
+print("1.-Venta de nuestros automoviles")
+print("2.-Te mostramos nuestro catalogo")
+print("3.-Busqueda ")
+print("4.-Prueba de manejo")
 
 n=int(input("\n Que desea realizar:"))
 
 if(n==1):
-    pass
+    venta.vent()
 elif(n==2):
     mostrar()
 elif(n==3):
     busqueda()
+elif(n==4):
+    print("Ingresa el coche a probar")
+    nome1=input()
+    print("Se inicia la prueba en el veiculo..."+nome1)
+    Automovil.IniciarPrueba()    
+
 
 
 
