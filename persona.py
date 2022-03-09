@@ -1,3 +1,7 @@
+from datetime import date
+import datetime
+
+from numpy import int16, int64
 import main
 class Persona:
     
@@ -48,10 +52,19 @@ class Persona:
         self.mun=x
 
 
-    def updateAge(self):
-        print("A que edad es a la cual deseas actualizar?")
-        self.edad=input()
-        print("Esta es tu nueva edad: ",self.edad)
+    def actualizarEdad(self,edad):
+        anio=int(input("Introduce el ultimo año que actualizaste la edad:"))
+        now=datetime.datetime.now()
+        conver1=datetime.datetime.strftime(now,'%Y')
+        anios=int(conver1)-anio
+        nedad=anios+edad
+        self.setEdad(nedad)
+        print("La nueva edad es: ",self.getEdad())
+
+    def actualizarNTel(self):
+        nNum=int(input("Nuevo numero de telefono"))
+        self.setnumT(nNum)
+        print("Numero de telefono actualizado a :",self.getnumT())
 
 class Cliente(Persona):
     pass 
@@ -94,3 +107,23 @@ vend3.setnum(24)
 vend3.setCatego("Vendedor")
 vend3.setEdad(18)
 vend3.setMuni("Peñitas")
+
+def cambiarEdad():
+        print("1.-Osvaldo \n 2. Alexis \n 3.Elias \n")
+        n=int(input("Empleado del que desea acualizar: "))
+        if(n==1):
+            vend1.actualizarEdad(int(vend1.getEdad()))
+        elif(n==2):
+            vend2.actualizarEdad(int(vend2.getEdad()))
+        elif(n==3):
+            vend3.actualizarEdad(int(vend3.getEdad()))
+
+def cambiarTelefono():
+        print("1.-Osvaldo \n 2. Alexis \n 3.Elias \n")
+        m=int(input("Empleado a cambiar numero de Telefono: "))
+        if(m==1):
+            vend1.actualizarNTel()
+        elif(m==2):
+            vend2.actualizarNTel()
+        elif(m==3):
+            vend3.actualizarNTel()

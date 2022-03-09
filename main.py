@@ -2,7 +2,8 @@
 from random import randint
 from tqdm import tqdm
 import venta 
-import persona
+import admin
+import os
 
 class Automovil:
     def __init__(self,tipo,color, marca, modelo, nombre, motor, tcomb, kilome,estado, costo):
@@ -103,6 +104,7 @@ def mostrar():
     for x in range(len(cCarrs)):
         print(cCarrs[x])
         print(cCam[x]) 
+        print(cLim[x])
 
 def busqueda():
     print("Porfavor indicanos que estas buscando\n")
@@ -162,20 +164,33 @@ print("1.-Venta de nuestros automoviles")
 print("2.-Te mostramos nuestro catalogo")
 print("3.-Busqueda ")
 print("4.-Prueba de manejo")
+print("5.-Administrador")
 
 n=int(input("\n Que desea realizar:"))
 
 if(n==1):
+    os.system("cls")
     venta.vent()
 elif(n==2):
+    os.system("cls")
     mostrar()
 elif(n==3):
+    os.system("cls")
     busqueda()
 elif(n==4):
+    os.system("cls")
     print("Ingresa el coche a probar")
     nome1=input()
     print("Se inicia la prueba en el veiculo..."+nome1)
     Automovil.IniciarPrueba()    
+elif(n==5):
+    os.system("cls")
+    print("ADVERTENCIA ESTE MENU ES SOLO PARA EL ADMINISTRADOR")
+    print("Ingresa el usuario")
+    usu=input()
+    print("Ingresa la contraseña")
+    contra=input()
+    admin.creden(usu,contra)
 
 
 
